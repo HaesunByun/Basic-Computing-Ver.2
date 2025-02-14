@@ -1,0 +1,2372 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 2. 복합자료형과 제어문 &#8212; Core Computing_Thinking with Computers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "HaesunByun/Core-Computing-Ver.3");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CC_chapter2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3. 모듈과 함수" href="CC_chapter3.html" />
+    <link rel="prev" title="Chapter 1. 기본자료형과 입출력" href="CC_chapter1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_cc.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo_cc.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    소개
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Core-Computing Ver.3</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter0.html">Chapter 0. 프로그래밍 언어와 파이썬</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter1.html">Chapter 1. 기본자료형과 입출력</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2. 복합자료형과 제어문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter3.html">Chapter 3. 모듈과 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter4.html">Chapter 4. 재귀함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter5.html">Chapter 5. 클래스와 객체</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter6.html">Chapter 6. 자료구조와 추상화</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter7.html">Chapter 7. 파일 입출력과 예외처리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter8.html">중간평가</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter9.html">Chapter 9. 알고리즘의 효율성과 탐색</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter10.html">Chapter 10. 정렬 알고리즘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter11.html">Chapter 11. 트리</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter12.html">Chapter 12. 그래프</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter13.html">Chapter 13. 가중치 그래프</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter14.html">Chapter 14. 알고리즘 설계 기법</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CC_chapter15.html">기말평가</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/HaesunByun/Core-Computing-Ver.3/blob/gh-pages/_sources/CC_chapter2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CC_chapter2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2. 복합자료형과 제어문</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">리스트</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">딕셔너리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">튜플</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">집합</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">배열</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">배열과 리스트의 비교</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">인덱싱(Indexing)과 슬라이싱</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">프로그래밍 제어구조</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">연산자</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">비교연산자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">멤버연산자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">논리 연산자</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">조건문</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if 문</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">if ~ else 문</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else-if">if ~ elif ~ else 문(다중 if문)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while">반복문: while</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-statement">while statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-else">while ~ else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for">반복문: for</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements">for statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-else">for~else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">➕comprehension(축약법)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-vs-immutable">➕가변(Mutable)자료형 vs. 불변(Immutable)자료형</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-shallow-copy-vs-deep-copy">➕얕은 복사 vs. 깊은 복사(Shallow Copy vs. Deep Copy)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">일반복사</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-shallow-copy">copy() 메서드(shallow copy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deepcopy">Deepcopy()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">마무리</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <hr class="docutils" />
+<font color='Blue' size="4">
+L0444.000500 컴퓨팅 핵심: 컴퓨터로 생각하기(Core Computing: Thinking with Computers)</font>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="chapter-2">
+<h1>Chapter 2. 복합자료형과 제어문<a class="headerlink" href="#chapter-2" title="Permalink to this headline">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">학습목표와 기대효과</p>
+<ul class="simple">
+<li><p>학습목표</p>
+<ul>
+<li><p>리스트, 딕셔너리, 튜플, 집합, 배열 등의 복합자료형을 빠르게 훑어본다.</p></li>
+<li><p>조건문과 반복문도 빠르게 훑어본다.</p></li>
+<li><p><strong>코드 축약법에 대해 익혀보자.</strong></p></li>
+<li><p><strong>복합자료형의 특성을 파악하고 가변 자료형과 불변 자료형의 개념을 이해하자.</strong></p></li>
+<li><p><strong>얕은 복사와 깊은 복사에 대해서 알아보자.</strong></p></li>
+</ul>
+</li>
+<li><p>기대효과</p>
+<ul>
+<li><p>다수의 데이터를 저장하기 위해 적절한 자료형을 선택할 수 있고 다룰 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>리스트<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>리스트 생성</p>
+<ul class="simple">
+<li><p>리스트는 숫자, 문자, 리스트, 딕셔너리 등 어떠한 데이터 타입이든 다 담을 수 있는 만물박스이다.</p></li>
+<li><p>형식은 다음과 같다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">아이템1</span><span class="p">,</span> <span class="n">아이템2</span><span class="p">,</span> <span class="n">아이템3</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">아이템n</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>리스트는 대괄호 안에 아이템을 콤마로 나열하여 생성할 수 있다.</p></li>
+<li><p>아이템없이 대괄호만 있으면 비어있는 리스트를 생성한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;coconut&#39;</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;coconut&#39;</span><span class="p">,</span> <span class="s1">&#39;durian&#39;</span><span class="p">]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>list() 함수로 생성</p>
+<ul>
+<li><p>list() 함수는 빈 리스트, 숫자리스트, 문자열을 낱개문자로 분리하여 리스트로 만드는 함수이다.</p></li>
+<li><p>range()함수와 같이 사용하면 수열로 이루어진 리스트를 생성한다.</p></li>
+<li><p>list() 괄호안에 문자열을 넣어주면 각 문자로 분리하여 리스트를 생성한다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>.split() 메서드로 생성</p>
+<ul>
+<li><p>split() 함수는 문자열을 특정 기준에 따라 분리하여 리스트로 만드는 함수이다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;문자열&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">공백</span> <span class="n">또는</span> <span class="n">지정한</span> <span class="n">문자열</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="s1">&#39;바나나, 딸기, 복숭아&#39;</span>
+<span class="n">fruit</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;바나나&#39;, &#39;딸기&#39;, &#39;복숭아&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>리스트 주요 메서드</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시(a=[‘a’,’b’,’c’]일 때)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.append(item)</span></code></p></td>
+<td class="text-left"><p>list의 마지막에 item을 추가</p></td>
+<td class="text-left"><p>a.append(‘d’) ➡ [‘a’,’b’,’c’,’d’]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.extend(list2)</span></code></p></td>
+<td class="text-left"><p>list의 마지막에 list2의 아이템을 추가하여 확장</p></td>
+<td class="text-left"><p>a.extend([‘d’,’e’]) ➡ [‘a’,’b’,’c’,’d’,’e’]</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.insert(index,</span> <span class="pre">item)</span></code></p></td>
+<td class="text-left"><p>list의 index 위치에 item을 삽입</p></td>
+<td class="text-left"><p>a.insert(1,’d’) ➡ [‘a’,’d’,’c’,’d’]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.remove(item)</span></code></p></td>
+<td class="text-left"><p>list에서 첫 번째로 나오는 item을 삭제</p></td>
+<td class="text-left"><p>a.remove(‘c’) ➡ [‘a’,’b’]</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.index(item)</span></code></p></td>
+<td class="text-left"><p>list에서 item의 index를 반환</p></td>
+<td class="text-left"><p>a.index(‘c’) ➡ 2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.count(item)</span></code></p></td>
+<td class="text-left"><p>list에서 item의 개수를 반환</p></td>
+<td class="text-left"><p>a.count(‘c’) ➡ 1</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.clear()</span></code></p></td>
+<td class="text-left"><p>list의 모든 item의 제거한다.</p></td>
+<td class="text-left"><p>a.clear() ➡ []</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.pop(index)</span></code></p></td>
+<td class="text-left"><p>list에서 인덱스의 아이템을 제거하고 반환.<br> 인덱스를 지정하지 않으면 마지막 아이템을 제거하고 반환</p></td>
+<td class="text-left"><p>a.pop(1) ➡ [‘a’,’c’]</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.reverse()</span></code></p></td>
+<td class="text-left"><p>list에서 아이템의 순서를 뒤집는다.</p></td>
+<td class="text-left"><p>a.reverse() ➡ [‘c’,’b’,’a’]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.copy()</span></code></p></td>
+<td class="text-left"><p>list를 shallow copy한다.</p></td>
+<td class="text-left"><p>b=a.copy() ➡ b= [‘a’,’b’,’c’]</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code></p></td>
+<td class="text-left"><p>list 내 item를 오름차순으로 정렬</p></td>
+<td class="text-left"><p>a = [‘c’,’a’,’b’]일 때, a.sort() ➡ [‘a’, ‘b’, ‘c’]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">sorted(list)</span></code></p></td>
+<td class="text-left"><p>list를 오름차순으로 정렬하여 반환</p></td>
+<td class="text-left"><p>b = sorted(a) ➡  b = [‘a’, ‘b’, ‘c’]</p></td>
+</tr>
+</tbody>
+</table>
+<p>리스트 연산자</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>연산 기호</p></th>
+<th class="text-center head"><p>의미</p></th>
+<th class="text-center head"><p>예시</p></th>
+<th class="text-center head"><p>실행 결과</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-center"><p>아이템합치기</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[1,2,3]+['a','b']</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[1,2,3,'a','b']</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-center"><p>아이템을 횟수만큼 합치기</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[1,2,3]*2</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[1,2,3,1,2,3]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 5, 6, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 1, 2, 3, 1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>딕셔너리<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>인덱스는 항상 정수로만 해야 할까?라는 생각을 한 번 쯤은 해본 적이 있을지도 모른다. 딕셔너리는 이러한 생각을 깨고 key를 인덱스로 사용한다.</p>
+<p>딕셔너리의 형식은 다음과 같다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">Key1</span><span class="p">:</span><span class="n">Value1</span><span class="p">,</span> <span class="n">Key2</span><span class="p">:</span><span class="n">Value2</span><span class="p">,</span> <span class="n">Key3</span><span class="p">:</span><span class="n">Value3</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>딕셔너리는 key와 value가 쌍(pair)으로 이루어진 자료구조이며, 중괄호 { }로 묶는다.</p></li>
+<li><p>딕셔너리의 key로는 숫자, 문자열, 튜플(숫자,문자열,튜플만 원소로 갖고 있는) 등 불변(immutable) 데이터타입만 사용할 수 있다.</p></li>
+<li><p>딕셔너리의 value에는 숫자, 문자열, 리스트, 튜플, 집합, 딕셔너리까지 다양한 자료형이 들어갈 수 있다.</p></li>
+</ul>
+<p>딕셔너리 생성</p>
+<ul class="simple">
+<li><p>중괄호 { }안에 key:value 쌍을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
+<li><p>또한 dict() 함수안에 (key, value) 쌍을 순서적으로 넣어 생성할 수 있다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">dict()</span></code>나 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">{}</span></code>와 같이 쓰면 비어있는 딕셔너리를 생성한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Byun&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">:</span><span class="s1">&#39;010-111-2222&#39;</span><span class="p">,</span> <span class="s1">&#39;birth&#39;</span><span class="p">:</span> <span class="s1">&#39;09/08&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;L0444.000400&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅기초&#39;</span> <span class="p">),</span> <span class="p">(</span><span class="s1">&#39;L0444.000500&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅핵심&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;L0444.000600&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅응용&#39;</span><span class="p">)])</span>
+<span class="n">dict3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">dict4</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dict4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Byun&#39;, &#39;phone&#39;: &#39;010-111-2222&#39;, &#39;birth&#39;: &#39;09/08&#39;, &#39;data&#39;: [1, 2, 3]}
+{&#39;L0444.000400&#39;: &#39;컴퓨팅기초&#39;, &#39;L0444.000500&#39;: &#39;컴퓨팅핵심&#39;, &#39;L0444.000600&#39;: &#39;컴퓨팅응용&#39;}
+{}
+{}
+</pre></div>
+</div>
+</div>
+</div>
+<p>딕셔너리 주요 메서드</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시 sports = { ‘걷기’ : 4, ‘조깅’: 7, ‘수영’: 9}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.get(key)</span></code></p></td>
+<td class="text-left"><p>딕셔너리에 key가 있으면 그 key와 매핑하는 value을 반환하고<br> key가 없으면 반환없음</p></td>
+<td class="text-left"><p>sports.get(‘걷기’) ➡ 4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.items()</span></code></p></td>
+<td class="text-left"><p>딕셔너리의 아이템들을 리스트 형태로 반환</p></td>
+<td class="text-left"><p>sports.items() ➡ dict_items([(‘걷기’, 4), (‘조깅’, 7), (‘수영’, 9)])</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code></p></td>
+<td class="text-left"><p>딕셔너리의 모든 key를 리스트 형태로 반환</p></td>
+<td class="text-left"><p>sports.keys() ➡ dict_keys([‘걷기’, ‘조깅’, ‘수영’])</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.values()</span></code></p></td>
+<td class="text-left"><p>딕셔너리의 모든 value을 리스트 형태로 반환</p></td>
+<td class="text-left"><p>sports.values() ➡ dict_values([4, 7, 9]))</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.pop(key)</span></code></p></td>
+<td class="text-left"><p>딕셔너리의 key를 찾아 제거하고 value를 반환</p></td>
+<td class="text-left"><p>sports.pop(‘조깅’) ➡ 7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.update(dict2)</span></code></p></td>
+<td class="text-left"><p>다른 딕셔너리와 합함, 반환은 없음</p></td>
+<td class="text-left"><p>sports.update({‘피겨’:10, ‘축구’: 10, ‘야구’: 9}) ➡ sports = {‘걷기’ : 4, ‘조깅’: 7, ‘수영’: 9, ‘피겨’: 10, ‘축구’: 10, ‘야구’: 9}</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dict.clear()</span></code></p></td>
+<td class="text-left"><p>딕셔너리의 모든 아이템을 삭제</p></td>
+<td class="text-left"><p>sports.clear() ➡ { }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>튜플<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>튜플 생성</p>
+<ul class="simple">
+<li><p>리스트와 마찬가지로 숫자, 문자, 리스트, 딕셔너리 등 어떠한 데이터 타입이든 다 담을 수 있는 만물박스이다.</p></li>
+<li><p>괄호( )안에 아이템을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
+<li><p>tuple() 함수의 괄호안에 아이템들을 순서적으로 넣어 생성할 수 있다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">tuple()</span></code>나 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">()</span></code>와 같이 쓰면 비어있는 튜플을 생성한다.</p></li>
+<li><p>아이템을 하나만 가진 튜플을 생성할 때에는 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">(1,)</span></code>와 같이 콤마 하나를 넣어줘야 한다. 이는 숫자 (1)로 인식하는 것을 피하기 위해서이다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">t5</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Byun&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">:</span><span class="s1">&#39;010-111-2222&#39;</span><span class="p">,</span> <span class="s1">&#39;birth&#39;</span><span class="p">:</span> <span class="s1">&#39;09/08&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<span class="n">t6</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">t7</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">,</span> <span class="n">t5</span><span class="p">,</span> <span class="n">t6</span><span class="p">,</span> <span class="n">t7</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>()
+(1,)
+(1, 2, 3)
+(1, 2, 3)
+(&#39;a&#39;, &#39;b&#39;, (&#39;ab&#39;, &#39;cd&#39;))
+(&#39;name&#39;, &#39;phone&#39;, &#39;birth&#39;, &#39;data&#39;)
+()
+</pre></div>
+</div>
+</div>
+</div>
+<p>튜플 주요 메서드</p>
+<ul class="simple">
+<li><p>리스트에서와는 달리 아이템의 수정, 삭제, 추가, 삽입은 불가능하다.</p></li>
+<li><p>따라서 append(), insert(), remove(), clear(), pop(), reverse(), sort(), copy() 등의 메서드는 지원하지 않는다.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시<br> std_ID = (‘23345’, ‘23346’, ‘23346’, ‘23347’)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>tuple.index(item)</p></td>
+<td class="text-left"><p>tuple에서 item의 index를 반환</p></td>
+<td class="text-left"><p>std_ID.index(‘23347’) ➡ 3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>tuple.count(item)</p></td>
+<td class="text-left"><p>tuple에서 item의 개수를 반환</p></td>
+<td class="text-left"><p>std_ID.count(‘23346’) ➡ 2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2>집합<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>리스트에서는 index를, 딕셔너리에서는 key를 사용하여 value에 접근할 수 있었다. 그렇다면 index나 key는 반드시 필요할까?</p>
+<p>집합(set)은 index나 key가 없다. 그렇기 때문에 순서가 없으며, 값이 중복되지 않는 특징을 가진 자료구조이다. 수학의 집합과 개념적으로 아주 비슷하다.</p>
+<p>집합 생성</p>
+<ul class="simple">
+<li><p>중괄호 { }안에 아이템을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
+<li><p>또한 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">set()</span></code>와 같이 쓰면 비어있는 set을 생성할 수 있다.</p></li>
+<li><p>set은 아이템의 중복을 수용하지 않기 때문에 중복을 제거할 필요가 있는 데이터라면 set으로 만들면 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;qux&#39;, &#39;bar&#39;, &#39;baz&#39;, &#39;foo&#39;}
+set()
+{1, 2, 3, 4, 6, 7, 8, 10}
+</pre></div>
+</div>
+</div>
+</div>
+<p>집합 주요 메서드</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시<br> a={1,4,7} b={1,3,6,8,10}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>a.add(element)</p></td>
+<td class="text-left"><p>추가</p></td>
+<td class="text-left"><p>a.add(5) ➡ {1,4,5,7}</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>a.union(b) or <br> a|b</p></td>
+<td class="text-left"><p>합집합</p></td>
+<td class="text-left"><p>a|b ➡ {1, 3, 4, 6, 7, 8, 10}</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>a.difference(b) or <br> a-b</p></td>
+<td class="text-left"><p>차집합</p></td>
+<td class="text-left"><p>a-b ➡ {4, 7}</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>a.intersection(b) or <br> a&amp;b</p></td>
+<td class="text-left"><p>교집합</p></td>
+<td class="text-left"><p>a&amp;b ➡ {1}</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>a.symmetric_difference(b) or <br> a^b</p></td>
+<td class="text-left"><p>대칭차집합</p></td>
+<td class="text-left"><p>a^b ➡ {3, 4, 6, 7, 8, 10}</p></td>
+</tr>
+</tbody>
+</table>
+<p>이외에도 몇 가지 메서드가 있으니 살펴보기 바란다.</p>
+</div>
+<div class="section" id="id5">
+<h2>배열<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>배열(Array) 생성</p>
+<ul class="simple">
+<li><p>numpy는 Number와 python의 합성어이다.</p></li>
+<li><p>행렬이나 대규모 다차원 배열을 쉽고 빠르게 처리할 수 있도록 하는 파이썬 라이브러리이며, 간단한 기능부터 계산과학 분야의 복잡한 연산을 지원하기 위한 기능들까지 포함되어 있다.</p></li>
+<li><p>numpy의 배열에는 모두 동일한 자료형만 저장이 가능하다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>1차원 배열부터 만들어보자.</p></li>
+<li><p>numpy모듈에서는 배열을 생성하는 다양한 방법을 지원한다.</p>
+<ul>
+<li><p>numpy 모듈의 <code class="docutils literal notranslate"><span class="pre">array()</span></code>를 통해 배열을 만들 수 있다.</p></li>
+<li><p>numpy 모듈의 <code class="docutils literal notranslate"><span class="pre">arange()</span></code>를 통해 배열을 만들 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">리스트</span> <span class="ow">or</span> <span class="nb">range</span><span class="p">())</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">ar11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ar111</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar111</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 2 3 4 5]
+[0 1 2 3 4 5 6 7 8 9]
+[1 2 3 4 5]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>2차원 배열은 행(Row)과 열(Column)로 구성되어 있다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/ch11/array.png" style="width:400px;"></div>
+<ul class="simple">
+<li><p>행은 가로 방향으로 줄을 세운 것이며, 열은 세로 방향으로 줄을 세운 것이다.</p></li>
+<li><p>2차원 배열은 array()에 중첩 리스트를 넣어주거나, 배열모양을 바꿔주는 reshape()을 통해서 생성할 수 있다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">리스트</span> <span class="n">of</span> <span class="n">리스트</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">step</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>여기서 row는 행의 개수, column은 열의 개수이다. column을 -1로 써주면 각 행에 들어갈 데이터의 개수를 동일하게 적용해준다.</p></li>
+<li><p>이때 배열 원소의 개수와 row*column의 개수가 같아야 한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">ar22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ar222</span> <span class="o">=</span> <span class="n">ar2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar222</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+========
+[[ 1  2  3]
+ [ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+========
+[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>3차원 배열은 면(page), 행, 열을 가진다.</p></li>
+<li><p>생성하는 방법은 2차원 배열과 유사하지만 리스트가 3번 중첩된다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">리스트</span> <span class="n">of</span> <span class="n">리스트</span> <span class="n">of</span> <span class="n">리스트</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">step</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span>
+                <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]])</span>
+<span class="n">ar33</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar33</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+========
+[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>배열의 구성, 차수 등의 정보를 확인하기 위해서는 다음과 같은 변수를 쓸 수 있다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">배열명</span><span class="o">.</span><span class="n">ndim</span>
+<span class="n">배열명</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">배열명</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ndim: 배열의 축 또는 차원의 개수</p></li>
+<li><p>shape: 배열의 모양이며, (m,n)형식으로 나타난다.</p></li>
+<li><p>size: 배열 원소의 개수. shape내의 원소의 크기의 곱과 같다. 즉 shape의 m*n은 size와 같다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+(2, 2, 3)
+12
+</pre></div>
+</div>
+</div>
+</div>
+<p>배열 연산</p>
+<ul class="simple">
+<li><p>numpy에서는 동일 인덱스끼리의 연산을 지원한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5 7 9]
+[-3 -3 -3]
+[ 4 10 18]
+[0.25 0.4  0.5 ]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>배열 x를 활용하여 배열 y를 구해보자.</p></li>
+</ul>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(y=2x^2-3x+1\)</span></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.  1.1 1.2 1.3 1.4 1.5 1.6 1.7
+ 1.8 1.9 2.  2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.  3.1 3.2 3.3 3.4 3.5
+ 3.6 3.7 3.8 3.9 4.  4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9]
+[ 1.    0.72  0.48  0.28  0.12  0.   -0.08 -0.12 -0.12 -0.08  0.    0.12
+  0.28  0.48  0.72  1.    1.32  1.68  2.08  2.52  3.    3.52  4.08  4.68
+  5.32  6.    6.72  7.48  8.28  9.12 10.   10.92 11.88 12.88 13.92 15.
+ 16.12 17.28 18.48 19.72 21.   22.32 23.68 25.08 26.52 28.   29.52 31.08
+ 32.68 34.32]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>numpy는 행렬끼리 연산할때 크기가 다른 경우 이를 자동으로 확대해 주는 브로드캐스팅을 지원한다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/broadcasting.png" style="width:400px;"></div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ar0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+========
+[0 1 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar0</span> <span class="o">+</span> <span class="n">ar1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  2,  4],
+       [ 3,  5,  7],
+       [ 6,  8, 10],
+       [ 9, 11, 13]])
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>논리연산의 경우 아래의 기호뿐만 아니라 논리적인 연산을 할 수 있는 함수(logical_and(), logical_or(),logical_not()..)도 존재한다.</p>
+<ul>
+<li><p>and는 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>,</p></li>
+<li><p>or는 <code class="docutils literal notranslate"><span class="pre">|</span></code>,</p></li>
+<li><p>not은 <code class="docutils literal notranslate"><span class="pre">~</span></code>로 쓴다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">160</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mi">157</span><span class="p">])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;남&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">162</span><span class="p">)</span> <span class="o">|</span> <span class="o">~</span><span class="p">(</span><span class="n">c</span><span class="o">==</span><span class="s1">&#39;여&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[False  True  True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>배열의 응용</p>
+<ul class="simple">
+<li><p>데이터 분석 예: 날씨 데이터를 분석. 특정 기간 동안의 온도 데이터를 분석해 평균, 최대, 최소 값을 계산</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 예제: 일주일간의 온도 데이터 (섭씨)</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">22.1</span><span class="p">,</span> <span class="mf">23.4</span><span class="p">,</span> <span class="mf">21.8</span><span class="p">,</span> <span class="mf">22.9</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">24.2</span><span class="p">,</span> <span class="mf">23.5</span><span class="p">])</span>
+
+<span class="c1"># 평균 온도</span>
+<span class="n">mean_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+<span class="c1"># 최대 온도</span>
+<span class="n">max_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+<span class="c1"># 최소 온도</span>
+<span class="n">min_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;평균 온도: </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;최대 온도: </span><span class="si">{</span><span class="n">max_temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;최소 온도: </span><span class="si">{</span><span class="n">min_temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>평균 온도: 22.99°C
+최대 온도: 24.20°C
+최소 온도: 21.80°C
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>이미지 처리의 예: 이미지를 흑백으로 변환하거나 필터를 적용할 때 NumPy를 사용할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># 이미지 로드</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;example.jpg&#39;</span><span class="p">)</span>
+<span class="n">image_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_np</span><span class="p">)</span>
+
+<span class="c1"># 회색조 변환</span>
+<span class="n">gray_image_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># 변환된 이미지 저장</span>
+<span class="n">gray_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">gray_image_np</span><span class="p">)</span>
+<span class="n">gray_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;example_gray.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mf">55e1</span><span class="n">b738a268</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># 이미지 로드</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;example.jpg&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">image_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">image_np</span><span class="p">)</span>
+
+<span class="nn">D:\users\anaconda3\lib\site-packages\PIL\Image.py</span> in <span class="ni">open</span><span class="nt">(fp, mode)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2764</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2765</span>     <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2766</span>         <span class="n">fp</span> <span class="o">=</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2767</span>         <span class="n">exclusive_fp</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">2768</span> 
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;example.jpg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>배열과 리스트의 비교<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>얼핏 비슷해 보이지만 완전히 기능이 다른
+파이썬의 리스트(list)와 numpy의 배열(array)의 차이를 간단히 비교해보자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>리스트와 배열의 생성에서,</p>
+<ul>
+<li><p>리스트는 정수, 실수, 문자열, 리스트 등 다양한 자료형을 하나의 리스트에 담을 수 있다.</p></li>
+<li><p>배열은 동일한 자료형만 하나의 배열에 담을 수 있다.</p></li>
+<li><p>배열은 numpy.ndarray 타입이다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">its_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;바나나&#39;</span><span class="p">,</span> <span class="s1">&#39;딸기&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,[</span><span class="s1">&#39;BTS&#39;</span><span class="p">,</span> <span class="s1">&#39;블랙핑크&#39;</span><span class="p">]]</span>
+<span class="n">its_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="n">its_array1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">])</span>
+<span class="n">its_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">its_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">its_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">its_array1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">its_array2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>리스트와 배열에 곱셈연산을 해보았을 때,</p>
+<ul>
+<li><p>리스트에서 곱셈은 리스트를 이어 붙이는 concatenate이다. 즉, 각 원소에 곱셈을 하지 않는다.</p></li>
+<li><p>배열은 각 원소에 벡터연산을 한다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">its_list</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">its_array</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>리스트와 배열의 연산속도</p>
+<ul>
+<li><p>리스트와 배열의 연산속도를 확인해보자.</p></li>
+<li><p>억개의 숫자에 대해서 2를 곱했다.</p></li>
+<li><p>결과를 보면 배열(array)가 10배 이상 빠르다.</p></li>
+<li><p>배열은 동일한 자료형만 저장하므로 데이터 저장에 필요한 저장공간이 일정하며 연속적이다. 따라서 메모리 주소 측면에서 인덱스를 통해 빠르게 데이터에 접근할 수 있다.</p></li>
+<li><p>반면, 리스트는 다양한 자료형을 저장할 수 있어서 필요한 저장공간이 일정하지 않으며, 메모리 활동공간도 연속적이지 않다. 인덱스를 갖지만 이는 몇 번째 데이터인가 정도를 의미한다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="p">[</span><span class="n">i</span> <span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트 실행시간: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열 실행시간: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="indexing">
+<h2>인덱싱(Indexing)과 슬라이싱<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>인덱스</strong>는 데이터의 순서를 나타내는 주소이다. 즉, 아이템에 접근하기 위해 인덱스를 사용한다.</p></li>
+<li><p>문자열, 리스트, 튜플, 배열 등은 정수인덱스가 사용되므로 잘 익혀두기 바란다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>숫자 인덱스의 경우, 양의 인덱스(positive index)와 음의 인덱스(negative index)가 있다.</p></li>
+<li><p>양의 인덱스는 가장 왼쪽 문자에서 0부터 시작하여 오른쪽으로 증가한다.</p></li>
+<li><p>음의 인덱스는 가장 오른쪽 끝 아이템에서 -1부터 시작하여 왼쪽으로 감소한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#문자열</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Life is too short, You need Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="c1">#리스트</span>
+<span class="n">shape</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turtle&#39;</span><span class="p">,</span> <span class="s1">&#39;arrow&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;square&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="c1"># 튜플</span>
+<span class="n">t5</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t5</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># 배열</span>
+<span class="n">ar2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">ar2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#딕셔너리</span>
+<span class="n">sports</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;걷기&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;조깅&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;수영&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sports</span><span class="p">[</span><span class="s1">&#39;걷기&#39;</span><span class="p">])</span>
+
+<span class="c1"># 집합</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">}</span>
+<span class="c1"># set은 순서가 없어서 인덱싱할 수가 없다.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="p">)</span> <span class="c1">#문자열</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#리스트</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t5</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#튜플</span>
+<span class="n">ar2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#배열</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>슬라이싱(Slicing)이란 데이터의 부분을 취하는 것이다. 형식은 다음과 같다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">변수</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>여기서 변수는 리스트, 문자열, 튜플 등의 다수 데이터를 저장하고 인덱스로 접근 할 수 있는 자료형 변수를 의미한다.</p></li>
+<li><p>start: 시작 인덱스. 디폴트는 step이 양수이면 시작 인덱스는 0, step이 음수이면 시작 인덱스는 -1이다.</p></li>
+<li><p>end: 끝 인덱스. 끝 인덱스 -1까지 슬라이싱 된다.</p></li>
+<li><p>step: 이동간격. 양수이면 오른쪽으로 step만큼 이동한다. 음수이면 왼쪽으로 step만큼 이동한다.</p></li>
+<li><p>start, end, step 모두 생략 가능하다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>아래의 코드를 통해 실습해보자.</p></li>
+<li><p>시작 인덱스의 생략으로 처음부터 인덱스 3 이전까지 오른쪽으로 이동하여 슬라이싱한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Life is too short, You need Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">shape</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turtle&#39;</span><span class="p">,</span> <span class="s1">&#39;arrow&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;square&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span> <span class="p">:</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">t5</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t5</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># 배열</span>
+<span class="n">ar2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">ar2</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>프로그래밍 제어구조<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<div class="info admonition">
+<p class="admonition-title">프로그래밍 제어구조</p>
+<p>프로그래밍의 제어구조로는 코드의 순서대로 실행하는 순차구조, 조건에 따라 실행을 분기하는 조건(선택)구조, 일정 부분을 반복하여 실행하는 반복구조가 있다.</p>
+<p>프로그램의 흐름(flow)를 파악하기 위해 차례대로 보기 쉽게 그린 그림을 플로우차트라고 한다.</p>
+</div>
+<div align="center"><img src="https://haesunbyun.github.io/Basic-Computing/_images/ch03/flow.png" style="width:600px;"></div>
+<p>앞서 우리는 프로그램의 코드를 순서대로 실행시키는 순차구조에 대해서 익혀왔다. 이번에는 특정 조건에 따라 실행을 분기시키는 조건구조에 대해서 알아보자.</p>
+</div>
+<div class="section" id="id8">
+<h2>연산자<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id9">
+<h3>비교연산자<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>비교연산자는 정수, 문자열, 변수 등의 값을 비교할 때 사용한다. <font color='red'> 비교연산자의 결과는 bool 타입인 True 또는 False로 나온다. </font></p>
+<p>비교연산자의 종류는 다음과 같다.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>연산 기호</p></th>
+<th class="text-center head"><p>의미</p></th>
+<th class="text-center head"><p>예시</p></th>
+<th class="text-center head"><p>실행 결과</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td class="text-center"><p>크다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">1</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td class="text-center"><p>작다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">1</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td class="text-center"><p>크거나 같다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&gt;=</span> <span class="pre">1</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td class="text-center"><p>작거나 같다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">&lt;=</span> <span class="pre">1</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td class="text-center"><p>같다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">'1'</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td class="text-center"><p>같지 않다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">'1'</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>멤버연산자<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>멤버연산자는 어떤 값이 포함되어 있는지 아닌지를 검사하는 연산자이다. 멤버연산자의 결과는 항상 True 또는 False로 나온다.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>연산 기호</p></th>
+<th class="text-center head"><p>의미</p></th>
+<th class="text-center head"><p>예시</p></th>
+<th class="text-center head"><p>실행 결과</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></td>
+<td class="text-center"><p>포함되어 있다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'p'</span> <span class="pre">in</span> <span class="pre">'python'</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
+<td class="text-center"><p>포함되어 있지 않다</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'p'</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">'python'</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3>논리 연산자<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>한개 또는 두개 이상의 조건을 비교하여 논리적인 결과를 얻고자 할때 사용한다. 논리연산자의 결과는 항상 True 또는 False로 나온다.</p>
+<ul class="simple">
+<li><p>논리연산자는 not &gt; and &gt; or로 우선순위를 가진다. 우선순위가 동일한 경우에는 왼쪽에서 오른쪽 순서로 실행한다.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>연산 기호</p></th>
+<th class="text-center head"><p>의미</p></th>
+<th class="text-center head"><p>예시</p></th>
+<th class="text-center head"><p>실행 결과</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></td>
+<td class="text-center"><p>논리곱(그리고)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></td>
+<td class="text-center"><p>논리합(또는)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td class="text-center"><p>논리부정(아니다)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">False</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>조건문<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<p>if문은 조건에 따라 실행을 분기시키는 문으로 if문, if ~ else문, if ~ elif ~ else문이 있다.</p>
+<ul class="simple">
+<li><p>조건식의 끝에는 반드시 콜론(:)을 붙여야 한다.</p></li>
+<li><p>조건식에 변수가 들어간다면 반드시 미리 정의되어 있어야 한다.</p></li>
+<li><p>조건에 의해서 실행되는 문장들은 반드시 들여쓰기(Indentation)을 해야 한다.</p></li>
+</ul>
+<div class="section" id="if">
+<h3>if 문<a class="headerlink" href="#if" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>비교해야 할 조건식이 하나라면 if문으로 충분하다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-else">
+<h3>if ~ else 문<a class="headerlink" href="#if-else" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>비교해야 할 조건식이 True일때와 False일때를 분기하여 실행해야 한다면 if ~ else문이 적합하다.</p></li>
+<li><p>아래 코드에서 print(‘Happy’)는 조건에 의해 실행되는 문장이 아니다. 따라서 들여쓰기가 되어 있지 않다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fail&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-elif-else-if">
+<h3>if ~ elif ~ else 문(다중 if문)<a class="headerlink" href="#if-elif-else-if" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>중첩 if ~ else문 대신에 다중 if문(if ~ elif ~ elif ~ else)으로 코드를 간결화 할 수 있다.</p></li>
+<li><p>다중 if문은 조건식이 True인 조건을 만날 때 까지 비교하면서 내려온다.</p></li>
+<li><p>조건식이 True인 조건을 만나면 그 조건에 해당하는 실행문장을 실행한 후, 다음 elif문의 조건을 비교하지 않고 다중 if문 전체를 벗어난다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">query</span><span class="o">=</span><span class="mi">5</span>
+<span class="k">if</span> <span class="n">query</span><span class="o">&gt;</span><span class="n">a</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;가장 큰 수 이다.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">query</span><span class="o">&gt;</span><span class="n">b</span><span class="p">:</span>  <span class="c1"># query&lt;a and query&gt;b</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;두 번째로 큰 수 이다.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">query</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;세 번째로 큰 수 이다.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1">#없을수도 있음</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;가장 작은 수 이다.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while">
+<h2>반복문: while<a class="headerlink" href="#while" title="Permalink to this headline">#</a></h2>
+<p>반복(iteration)문은 동일한 문장을 반복해서 실행하는 구조이다.
+반복문 while과 for에 대해서 알아본다.</p>
+<div class="section" id="while-statement">
+<h3>while statement<a class="headerlink" href="#while-statement" title="Permalink to this headline">#</a></h3>
+<p>while문의 형식은 다음과 같다. 조건 뒤에는 반드시 콜론(:)이 있어야 하며, 조건이 True인 동안 while문 안에 있는 실행 문장을 실행한다. 이때 실행 문장은 반드시 들여쓰기가 되어 있어야 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">조건</span><span class="p">:</span>
+    <span class="n">실행</span> <span class="n">문장1</span>
+    <span class="n">실행</span> <span class="n">문장2</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;재미있는 파이썬:</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="break">
+<h3>break<a class="headerlink" href="#break" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>while문의 조건 부분에 조건식이 아닌 True 또는 1 등을 넣어줄 수도 있다.</p></li>
+<li><p>이 경우에는 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">1:</span></code> 이므로 조건이 항상 True가 되어 무한 반복하게 된다.</p></li>
+<li><p>따라서 무한반복문의 경우 반드시 반복문을 탈출하는 break를 반복문 안 어딘가에 있어야 한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;무야호~:</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+       <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;count=</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while-else">
+<h3>while ~ else<a class="headerlink" href="#while-else" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>while문에도 else가 있다.</p></li>
+<li><p>while문의 else 파트는 while문이 정상적으로 모든 반복을 다 한 경우에만 실행한다.</p></li>
+<li><p>즉, while문의 조건식이 False가 되서 빠져나오는 경우에만 실행하며, break를 통해서 while문을 빠져나온 경우에는 else문이 실행되지 않는다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">:</span>
+    <span class="n">pw</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Password: &#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pw</span><span class="o">==</span><span class="s1">&#39;pythonisfun&#39;</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;로그인 되었습니다.&#39;</span><span class="p">)</span>
+       <span class="k">break</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>    
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;로그인에 실패했습니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="for">
+<h2>반복문: for<a class="headerlink" href="#for" title="Permalink to this headline">#</a></h2>
+<p>while문이 주어진 조건에 대해 반복하는 것이였다면 for문은 주어진 범위에 대해 순회한다.</p>
+<div class="section" id="for-statements">
+<h3>for statements<a class="headerlink" href="#for-statements" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">범위</span><span class="p">(</span><span class="n">반복가능한</span> <span class="n">것들</span><span class="p">):</span>
+    <span class="n">statements</span>
+<span class="n">next_statements</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>while문에서는 조건에 사용될 변수를 while문 전에 미리 정의해야 했다. 그러나 for문에서는 for 다음에 바로 정의하면 된다.</p></li>
+<li><p>범위에는 range, 문자열, 리스트, 튜플, 딕셔너리 등  반복가능한 데이터 타입(iterable data type)들이 올 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">count</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;🌳를 </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">그루 심었습니다. </span><span class="si">{</span><span class="s2">&quot;🌳&quot;</span><span class="o">*</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아~ 공기좋다~~~&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">count</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;🌳를 </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">그루 심었습니다. </span><span class="si">{</span><span class="s2">&quot;🌳&quot;</span><span class="o">*</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;아~ 공기좋다~~~&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">범위에</span> <span class="pre">문자열</span></code>을 넣을 수 있다. 문자열의 경우 변수 i가 한 글자씩 순회한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;wow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>반복문 범위에 <code class="docutils literal notranslate"><span class="pre">리스트</span></code>를 넣을 수 있다. 리스트의 경우 변수 i가 리스트내 아이템(원소, 요소, 엘리먼트)를 하나씩 순회한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;programming&#39;</span><span class="p">,</span> <span class="s1">&#39;pasta&#39;</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;play park&#39;</span><span class="p">]:</span>
+  <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;p&#39;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>반복문 범위에 <code class="docutils literal notranslate"><span class="pre">딕셔너리</span></code>를 넣을 수 있다. 딕셔너리의 경우 변수 i가 딕셔너리의 key를 하나씩 순회한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;2323-12345&#39;</span><span class="p">:</span><span class="s1">&#39;가영&#39;</span><span class="p">,</span> <span class="s1">&#39;2323-12346&#39;</span><span class="p">:</span><span class="s1">&#39;나영&#39;</span><span class="p">}:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>반복문의 범위에 <code class="docutils literal notranslate"><span class="pre">집합</span></code>을 넣을 수 있다. 변수 i가 집합의 원소를 하나씩 순회한다. 그러나 집합은 순서가 없기 때문에 출력하는 값의 순서가 다를 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="p">{</span><span class="s1">&#39;muzi&#39;</span><span class="p">,</span> <span class="s1">&#39;con&#39;</span><span class="p">,</span> <span class="s1">&#39;apeach&#39;</span><span class="p">,</span> <span class="s1">&#39;jay-G&#39;</span><span class="p">,</span> <span class="s1">&#39;frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;neo&#39;</span><span class="p">,</span> <span class="s1">&#39;tube&#39;</span><span class="p">,</span> <span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;choonsik&#39;</span><span class="p">}:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>반복문 범위에 <code class="docutils literal notranslate"><span class="pre">튜플</span></code>을 넣을 수 있다. 변수 i가 튜플의 원소를 하나씩 순회한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;coconut&#39;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="for-else">
+<h3>for~else<a class="headerlink" href="#for-else" title="Permalink to this headline">#</a></h3>
+<p>for문에도 else가 있다. while ~ else와 마찬가지로 for문이 정상적으로 모든 반복을 다 한 경우에만 실행한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">리스트</span><span class="p">(</span><span class="ow">or</span> <span class="n">문자열</span> <span class="n">등</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">statements1</span>
+    <span class="k">if</span> <span class="n">조건</span><span class="p">:</span>
+        <span class="n">if_statements</span>
+        <span class="k">break</span>
+    <span class="n">statements2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">else_statements</span>
+<span class="n">next_statements</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;computer&#39;</span>
+<span class="n">letter</span> <span class="o">=</span> <span class="s1">&#39;u&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">letter</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s1">가 검색되었습니다.&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s1">는 검색되지 않았습니다.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comprehension">
+<h2>➕comprehension(축약법)<a class="headerlink" href="#comprehension" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>리스트, 딕셔너리, 집합를 생성할 때 더 간결한 방법으로 생성하는 문법이다.</p></li>
+<li><p>대괄호안에 for문이나 if문을 이용해 한 줄의 코드로 작성한다.</p></li>
+<li><p>이러한 축약법은 파이썬이 <code class="docutils literal notranslate"><span class="pre">파이썬스럽다</span></code> 라는 것을 보여주는 대표적인 예이다.</p></li>
+<li><p>아래 예를 통해 풀어 쓴 코드와 축약형 코드의 차이를 확인해보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;풀어 쓴 코드======&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span>  <span class="ow">in</span>  <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;축약형 코드======&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span>  <span class="ow">in</span>  <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;풀어 쓴 코드======&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span>  <span class="ow">in</span>  <span class="p">[</span><span class="s1">&#39;70&#39;</span><span class="p">,</span><span class="s1">&#39;90&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">]:</span>
+     <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;축약형 코드======&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;70&#39;</span><span class="p">,</span><span class="s1">&#39;90&#39;</span><span class="p">,</span><span class="s1">&#39;100&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;std1&#39;</span><span class="p">:</span><span class="s1">&#39;경영학과&#39;</span><span class="p">,</span> <span class="s1">&#39;std2&#39;</span><span class="p">:</span><span class="s1">&#39;컴공과&#39;</span><span class="p">,</span> <span class="s1">&#39;std3&#39;</span><span class="p">:</span><span class="s1">&#39;컴공과&#39;</span><span class="p">,</span> <span class="s1">&#39;std4&#39;</span><span class="p">:</span><span class="s1">&#39;영문과&#39;</span><span class="p">}</span>
+
+<span class="n">my_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="s1">&#39;컴공과&#39;</span> <span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;std1&#39;</span><span class="p">:</span><span class="s1">&#39;경영학과&#39;</span><span class="p">,</span> <span class="s1">&#39;std2&#39;</span><span class="p">:</span><span class="s1">&#39;컴공과&#39;</span><span class="p">,</span> <span class="s1">&#39;std3&#39;</span><span class="p">:</span><span class="s1">&#39;컴공과&#39;</span><span class="p">,</span> <span class="s1">&#39;std4&#39;</span><span class="p">:</span><span class="s1">&#39;영문과&#39;</span><span class="p">}</span>
+
+<span class="n">my_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">j</span> <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="s1">&#39;컴공과&#39;</span> <span class="k">else</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>  <span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mutable-vs-immutable">
+<h2>➕가변(Mutable)자료형 vs. 불변(Immutable)자료형<a class="headerlink" href="#mutable-vs-immutable" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">mutable vs. immutable  </p>
+<p>가변(mutable)이라는 것은 객체가 만들어진 이후에도 데이터의 추가, 삽입, 삭제, 수정이 자유로운 특징을 가진 것을 의미한다. 리스트, 집합, 딕셔너리는 mutable 특징을 가진 데이터 타입이다.</p>
+<p>불편(immutable)이라는 것은 객체가 한번 만들어진 이후에는 데이터의 추가, 삽입, 삭제, 수정이 불가하다는 것을 의미한다. 정수, 실수, 문자열, 튜플 등은 immutable 특징을 가진 데이터 타입이다.</p>
+</div>
+<p>여기서는 mutable 데이터타입과 immutable 데이타 타입에 대해 좀 더 자세히 알아보도록 한다.</p>
+<p>list, dict, set은 mutable 데이터타입에 속한다. mutable 데이타 타입은 객체가 만들어진 이후에도 value를 수정, 삭제, 추가가 가능하다.</p>
+<p>반면, int, float, str, tuple은 immutable 데이타 타입이며 객체가 만들어지면 value를 수정, 삭제, 추가할 수 없는 타입을 의미한다.
+우리는 예를들어, a=100을 한 후 a=200을 하면 int 변수인 a의 값을 변경할 수 있었으므로, int나 float의 value를 수정할 수 없다는 것이 선뜻 이해되지 않을 것이다.</p>
+<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/C_chapter4_mu.png" style="width:700px;"></div>
+<ul class="simple">
+<li><p>그렇다면 한번 확인해보자.</p></li>
+<li><p>변수 a에 100을 저장하고, 변수 a의 ID를 출력해보자.</p></li>
+<li><p>변수의 ID는 객체가 만들어질 때 정해진다.</p></li>
+<li><p>ID는 객체를 구분하는 구분자이며, 메모리상에서의 객체의 주소이다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>변수 a에 100을 더하여 저장한 후, 다시 변수 a의 ID를 출력해보자.</p></li>
+<li><p>이전에 출력되었던 값과 다른 ID가 출력되었을 것이다. 즉 새로운 ID가 생성되었다는 것을 의미하며 이는 객체가 새로 만들어졌다는 뜻이다.</p></li>
+<li><p>변수 a는 <code class="docutils literal notranslate"><span class="pre">정수형</span> <span class="pre">데이터</span> <span class="pre">타입으로</span> <span class="pre">객체가</span> <span class="pre">만들어진</span> <span class="pre">후에</span> <span class="pre">value를</span> <span class="pre">수정</span> <span class="pre">할</span> <span class="pre">수</span> <span class="pre">없는</span> <span class="pre">immutable</span> <span class="pre">데이타</span> <span class="pre">타입</span></code>이다. 따라서 100이 200으로 수정되는 것이 아니라 200을 가진 객체가 새로 생성된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="mi">100</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/C_chapter4_id.png" style="width:400px;"></div>
+<ul class="simple">
+<li><p>문자열 변수 str_data에 ‘Python Is fun’을 저장한 후 대문자 ‘I’를 소문자 ‘i’로 수정하려고 시도하면 에러가 나온다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">문자열도</span> <span class="pre">객체가</span> <span class="pre">만들어진</span> <span class="pre">이후에는</span> <span class="pre">수정할</span> <span class="pre">수</span> <span class="pre">없는</span> <span class="pre">immutable</span> <span class="pre">데이타</span> <span class="pre">타입</span></code>이기 때문이다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">str_data</span> <span class="o">=</span> <span class="s1">&#39;Python Is fun&#39;</span>
+<span class="n">str_data</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;i&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">01</span><span class="n">ff3e0289b1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">str_data</span> <span class="o">=</span> <span class="s1">&#39;Python Is fun&#39;</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">str_data</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;i&#39;</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>튜플 변수 std_ID의 인덱스 2의 값을 수정하려고 시도했다면 에러를 만나게 될 것이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">튜플도</span> <span class="pre">객체가</span> <span class="pre">만들어진</span> <span class="pre">이후에는</span> <span class="pre">수정할</span> <span class="pre">수</span> <span class="pre">없는</span> <span class="pre">immutable</span> <span class="pre">데이타</span> <span class="pre">타입</span></code>이기 때문이다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">std_ID</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;23345&#39;</span><span class="p">,</span> <span class="s1">&#39;23346&#39;</span><span class="p">,</span> <span class="s1">&#39;23347&#39;</span><span class="p">,</span> <span class="s1">&#39;23347&#39;</span><span class="p">)</span>
+<span class="n">std_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;23348&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">dd0d7a6d5119</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">std_ID</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;23345&#39;</span><span class="p">,</span> <span class="s1">&#39;23346&#39;</span><span class="p">,</span> <span class="s1">&#39;23347&#39;</span><span class="p">,</span> <span class="s1">&#39;23347&#39;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">std_ID</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;23348&#39;</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>mutable 데이터 타입인 리스트에 대해서 테스트해보자.</p></li>
+<li><p>리스트변수 a에 [1,2,3]를 저장하고 ID를 출력해보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>리스트변수 a에 새로운 값을 추가하고 ID를 출력해보자.</p></li>
+<li><p>이전에 출력되었던 ID와 동일한 ID가 출력된 것을 볼 수 있다.</p></li>
+<li><p>즉 <code class="docutils literal notranslate"><span class="pre">리스트는</span> <span class="pre">mutable</span> <span class="pre">데이터</span> <span class="pre">타입이므로</span> <span class="pre">데이터를</span> <span class="pre">저장하기</span> <span class="pre">위한</span> <span class="pre">메모리가</span> <span class="pre">가변이며</span> <span class="pre">값을</span> <span class="pre">수정,</span> <span class="pre">추가,</span> <span class="pre">삭제할</span> <span class="pre">수</span> <span class="pre">있다.</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vs-shallow-copy-vs-deep-copy">
+<h2>➕얕은 복사 vs. 깊은 복사(Shallow Copy vs. Deep Copy)<a class="headerlink" href="#vs-shallow-copy-vs-deep-copy" title="Permalink to this headline">#</a></h2>
+<p>리스트, 딕셔너리, 집합, 배열 등의 데이터를 복사해서 복사된 데이터를 가지고 작업하기를 원할 때가 있다.
+이들은 모두 mutable 데이터타입이고, 이들 자료구조를 복사할 때의 문제점과 방법을 알아보자.</p>
+<p>데이터를 복사하는 방법에는 세 가지가 있다.</p>
+<ul class="simple">
+<li><p>변수복사: 원조변수와 복사변수가 같은 메모리를 참조</p></li>
+<li><p>Shallow Copy : 원조변수와 복사변수가 다른 메모리를 참조하나 2차원 이상인 경우 동일 메모리를 참조</p></li>
+<li><p>Deep Copy : 복사변수는 새로운 메모리를 할당하여 독립적으로 생성</p></li>
+</ul>
+<div class="section" id="id13">
+<h3>일반복사<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cp_a</span> <span class="pre">=</span> <span class="pre">a</span></code>와 같은 복사할 수 있다.</p></li>
+<li><p>그러나 이와 같은 복사의 문제는 복사 배열의 데이터를 작업을 하면 원조 배열의 데이터도 똑같이 작업된다는 것이다.</p></li>
+<li><p>그 이유는 복사변수와 원조변수가 같은 메모리 주소를 참조하기 때문이다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/C_chapter4_id3.png" style="width:400px;"></div>
+<ul class="simple">
+<li><p>다음 코드를 통해 확인해보자.</p></li>
+<li><p>리스트, 딕셔너리, 집합, 배열 각각에 변수 a, b, c, d를  정의하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span> <span class="c1">#리스트</span>
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span> <span class="c1">#딕셔너리</span>
+<span class="n">c</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">)}</span> <span class="c1"># 집합</span>
+<span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]])</span> <span class="c1">#배열</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Origin Data===================&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>위에서 정의한 변수 a, b, c, d를 변수 a1, b1, c1,d1에 각각 복사하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="o">=</span><span class="n">a</span>
+<span class="n">b1</span><span class="o">=</span><span class="n">b</span>
+<span class="n">c1</span><span class="o">=</span><span class="n">c</span>
+<span class="n">d1</span><span class="o">=</span><span class="n">d</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copy Data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>복사한 변수 a1, b1, c1, d1의 값의 일부를 수정하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 리스트 수정</span>
+<span class="n">b1</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 딕셔너리 수정</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="c1"># 집합 수정</span>
+<span class="n">d1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 배열 수정</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>원조변수 a, b, c, d와 복사변수 a1, b1, c1, d1을 출력해보면, <code class="docutils literal notranslate"><span class="pre">원조변수의</span> <span class="pre">값까지</span> <span class="pre">수정된</span> <span class="pre">것을</span> <span class="pre">확인할</span> <span class="pre">수</span> <span class="pre">있다.</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copy Data 수정 후 origin data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Copy Data 수정 후 copy data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>원조변수와 복사변수의 ID가 동일한지 알아보기 위해 is 연산자를 사용하여 확인해볼 수 있다.</p></li>
+<li><p>is 연산자는 메모리 주소 즉 객체의 ID가 동일한지 확인하는 연산자이다.</p></li>
+<li><p>값이 동일한지 확인하는 것은 <code class="docutils literal notranslate"><span class="pre">==</span></code>를 사용하고, ID가 동일한지 확인하기 위해서는 is 연산자를 사용한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">a1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="n">b1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="ow">is</span> <span class="n">c1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span> <span class="ow">is</span> <span class="n">d1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="copy-shallow-copy">
+<h3>copy() 메서드(shallow copy)<a class="headerlink" href="#copy-shallow-copy" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>원조데이터가 수정되는 것을 방지하기 위해서는 copy() 메서드를 사용해보자.</p></li>
+<li><p>리스트, 딕셔너리, 집합, 배열 각각에 변수 a, b, c, d를 정의하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span> <span class="c1">#리스트</span>
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span> <span class="c1">#딕셔너리</span>
+<span class="n">c</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">)}</span> <span class="c1"># 집합</span>
+<span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]])</span> <span class="c1"># 배열</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Origin Data===================&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>이번에는 copy() 메서드를 사용하여 복사하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">b1</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">d1</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copy Data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>복사한 변수 a1, b1, c1, d1의 값의 일부를 수정하였다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 리스트 수정</span>
+<span class="n">b1</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 딕셔너리 수정</span>
+<span class="n">c1</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="c1"># 집합 수정</span>
+<span class="n">d1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 배열 수정</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>원조변수 a, b, c, d와 복사변수 a1, b1, c1, d1을 출력해보면, 원조변수의 값은 그대로 유지되고, 복사변수의 값만 수정된 것을 확인할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copy Data 수정 후 origin data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Copy Data 수정 후 copy data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;리스트: </span><span class="si">{</span><span class="n">a1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;딕셔너리: </span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;집합: </span><span class="si">{</span><span class="n">c1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열: </span><span class="si">{</span><span class="n">d1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>또한 원조변수 a, b, c, d와 복사변수 a1, b1, c1, d1가 서로 다른 ID를 갖고 있는 것을 확인할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">a1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="n">b1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="ow">is</span> <span class="n">c1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span> <span class="ow">is</span> <span class="n">d1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>하지만 결론부터 말하면 리스트의 아이템이 mutable 데이터이거나 딕셔너리의 value가 mutable 데이터인 경우 이를 수정했을 때 여전히 원조변수의 값이 같이 수정되는 문제가 발생한다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span>
+<span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}])</span>
+</pre></div>
+</div>
+<p>a[3]의 값이 [10,20,30]리스트로 mutable 데이터이다.</p>
+<p>b[‘c’]의 값이 [10,20,30]리스트로 mutable 데이터이다.</p>
+<p>c의 각 원소들이 딕셔너리로 mutable 데이터이다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span>
+<span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">b1</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">c1</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;here&#39;</span>
+<span class="n">b1</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;here&#39;</span>
+<span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>원본 데이터와 복사 데이터가 모두 수정된 것을 확인할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/C_chapter4_id4.png" width=300></div></div>
+<div class="section" id="deepcopy">
+<h3>Deepcopy()<a class="headerlink" href="#deepcopy" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>deepcopy() 함수는 copy 모듈에 있다.</p></li>
+<li><p>Deep copy는 복사변수의 값을 작업(수정, 삭제, 추가 등)해도 원본변수의 값이 작업되지 않는다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span>
+<span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">a1</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b1</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">c1</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">a1</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">b1</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">c1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copy Data 수정 후 origin data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Copy Data 수정 후 copy data=============&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>마무리<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>프로그래밍 제어 구조는 순차, 선택, 반복 구조가 있다.</p></li>
+<li><p>조건문은 비교할 때 사용하는 문으로 if문, if ~ else문, if ~ elif ~ else문이 있다.</p></li>
+<li><p>비교연산자에는 &gt;, &lt; , &gt;=, &lt;=, ==, != 연산자가 있다.</p></li>
+<li><p>논리연산자에는 and, or, not 연산자가 있다.</p></li>
+<li><p>멤버연산자에는 in, not in 연산자가 있다.</p></li>
+<li><p>while문은 조건비교 결과가 True인 동안 블록 소스코드를 반복 수행한다.</p></li>
+<li><p>for문은 범위의 처음부터 끝까지 차례대로 반복한다.</p></li>
+<li><p>코드 축약법을 활용하면 코드의 가독성과 효율성을 높일 수 있으므로, 반복적인 패턴이나 불필요한 코드를 줄일 수 있다.</p></li>
+<li><p>복합자료형의 특성과 가변/불변 자료형을 이해하면 메모리 관리와 데이터 조작에서 발생할 수 있는 오류를 줄일 수 있다.</p></li>
+<li><p>얕은 복사와 깊은 복사의 차이를 명확히 이해하고 적절하게 활용하는 것은 데이터의 의도치 않은 변경을 방지하는 데 중요하다.</p></li>
+</ul>
+<hr class="docutils" />
+<font color='Grey' size="4">
+L0444.000500 컴퓨팅 핵심: 컴퓨터로 생각하기(Core Computing: Thinking with Computers)</font>
+<hr class="docutils" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "HaesunByun/Core-Computing-Ver.3",
+            ref: "gh-pages",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="CC_chapter1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1. 기본자료형과 입출력</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CC_chapter3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3. 모듈과 함수</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">리스트</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">딕셔너리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">튜플</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">집합</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">배열</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">배열과 리스트의 비교</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">인덱싱(Indexing)과 슬라이싱</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">프로그래밍 제어구조</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">연산자</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">비교연산자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">멤버연산자</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">논리 연산자</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">조건문</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if 문</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">if ~ else 문</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else-if">if ~ elif ~ else 문(다중 if문)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while">반복문: while</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-statement">while statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break">break</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-else">while ~ else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for">반복문: for</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-statements">for statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-else">for~else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehension">➕comprehension(축약법)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-vs-immutable">➕가변(Mutable)자료형 vs. 불변(Immutable)자료형</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-shallow-copy-vs-deep-copy">➕얕은 복사 vs. 깊은 복사(Shallow Copy vs. Deep Copy)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">일반복사</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-shallow-copy">copy() 메서드(shallow copy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deepcopy">Deepcopy()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">마무리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By hs Byun
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
