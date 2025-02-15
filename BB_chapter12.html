@@ -205,10 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter10.html">Chapter 10. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter11.html">Chapter 11. Pandas I</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 12. Pandas II</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter13.html">Chapter 13. Visualization</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter14.html">Chapter 14. 종합 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
 </ul>
@@ -388,7 +385,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 12. Pandas II</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">파일 입출력</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">자료형 다루기</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">누락값 처리하기</a></li>
@@ -396,17 +392,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">시계열 데이터</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melt">melt()를 이용한 데이터 정리</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">피벗 테이블을 이용한 데이터 정리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI코딩 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT에게 질문하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">코랩의 AI코딩</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT 활용하기</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">ChatGPT 가입하기</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ChatGPT에게 질문하기</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">코랩의 AI코딩</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -3207,9 +3199,8 @@ memory usage: 96.0+ bytes
 </div></div></div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="chatgpt">
-<h1>ChatGPT 활용하기<a class="headerlink" href="#chatgpt" title="Permalink to this headline">#</a></h1>
+<div class="section" id="ai">
+<h2>AI코딩 활용하기<a class="headerlink" href="#ai" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>ChatGPT(Generative Pre-trained Transformer)는 미국의 AI 연구재단 OpenAI가 2022년 11월 공개한 초거대 언어모델 GPT-3.5 기반 대화형 인공지능 챗봇이다.</p></li>
 <li><p>Generative(생성형), Pre-trained(미리 학습된) Transformer(변환기)</p></li>
@@ -3226,13 +3217,10 @@ memory usage: 96.0+ bytes
 </pre></div>
 </div>
 <div align="center"><img src="https://haesunbyun.github.io/common/images/chatGPT_logo.png" width="300"></div>
-<div class="section" id="id7">
-<h2>ChatGPT 가입하기<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <p>ChatGPT</p>
 <p><a class="reference external" href="https://chat.openai.com">https://chat.openai.com</a></p>
-</div>
-<div class="section" id="id8">
-<h2>ChatGPT에게 질문하기<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="section" id="chatgpt">
+<h3>ChatGPT에게 질문하기<a class="headerlink" href="#chatgpt" title="Permalink to this headline">#</a></h3>
 <p>Q. ChatGPT에게 질문해보세요.</p>
 <ul class="simple">
 <li><p>ChatGPT란 뭐야?</p></li>
@@ -3244,8 +3232,8 @@ memory usage: 96.0+ bytes
 <li><p>세익스피어 작품에 대해 가르쳐 줘</p></li>
 </ul>
 </div>
-<div class="section" id="ai">
-<h2>코랩의 AI코딩<a class="headerlink" href="#ai" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id7">
+<h3>코랩의 AI코딩<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>코랩에서도 AI로 코드를 생성할 수 있다.</p></li>
 <li><p>다만 workspace계정(일반적으로 팀이나 조직 내에서 협업하고 업무를 관리하기 위해 사용되는 계정)은 지원하지 않는다.</p></li>
@@ -3254,9 +3242,8 @@ memory usage: 96.0+ bytes
 <div align="center"><img src="https://haesunbyun.github.io/common/images/AIcoding.PNG" width=400>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="practice-1-chat-gpt">
-<h1>Practice-1: Chat-GPT로 서울인구데이터 활용해보기<a class="headerlink" href="#practice-1-chat-gpt" title="Permalink to this headline">#</a></h1>
+<div class="section" id="practice-1-chat-gpt">
+<h3>Practice-1: Chat-GPT로 서울인구데이터 활용해보기<a class="headerlink" href="#practice-1-chat-gpt" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>데이터 다운로드 사이트 : <a class="reference external" href="https://data.seoul.go.kr/">https://data.seoul.go.kr/</a></p></li>
 <li><p>검색어: 서울시 자치구별 인구수</p></li>
@@ -3308,6 +3295,8 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <hr class="docutils" />
 <p>서울대학교 학부대학<br>
 교수 변해선</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -3371,7 +3360,6 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 12. Pandas II</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">파일 입출력</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">자료형 다루기</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">누락값 처리하기</a></li>
@@ -3379,17 +3367,13 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">시계열 데이터</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melt">melt()를 이용한 데이터 정리</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">피벗 테이블을 이용한 데이터 정리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI코딩 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT에게 질문하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">코랩의 AI코딩</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT 활용하기</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">ChatGPT 가입하기</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ChatGPT에게 질문하기</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">코랩의 AI코딩</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
